@@ -35,7 +35,9 @@ def main():
         number = 1
         print(number)
 
-        
+        f = open("message.txt", "r")
+        message = f.read()
+        print(message.split(',')) 
 
     except ValueError:
         print("Check the input parameters. Try again...")
@@ -50,3 +52,4 @@ if __name__ == "__main__":
 
 
 #python afn_to_afd.py afn-tran-table.csv
+
