@@ -7,6 +7,7 @@
 # Python3 program to....
 ######################################################
 
+
 # imports _________________________
 
 
@@ -16,16 +17,39 @@ oneTimePad = 'cool'
 
 
 # Functions area______________________________________________
-def convertion_from_afn_to_afd(param1,param2):
+
+
+def string_to_binary(message):
+
+    #binaryMessage = ''.join(format(ord(i), '08b') for i in message) 
+    binaryMessage = ''.join(format(i, '08b') for i in bytearray(message, encoding ='utf-8')) 
+
+    return binaryMessage
+
+
+def xor_operation(string1,string2):
     '''
-    Test function
+    Function that executes xor binary operation on two given strings.
 
     Params:
-     - param1: sdjfaosdjkf
-     - param2: askdjflaklsdjfa
+     - string1: the message
+     - string2: the key
+     - return - ciphertext
     '''
 
-    return 0
+    resultString = ''
+    for s in range(0,len(string1)):
+        if(string1[s] == '0' and string2[s] == '0'):
+            resultString.append('0')
+        elif(string1[s] == '0' and string2[s] == '1'):
+            resultString.append('1')
+        elif(string1[s] == '1' and string2[s] == '0'):
+            resultString.append('1')
+        elif(string1[s] == '1' and string2[s] == '1'):
+            resultString.append('0')
+    return resultString
+
+
 
 
 
@@ -38,6 +62,8 @@ def main():
         f = open("message.txt", "r")
         message = f.read()
         print(message.split(',')) 
+
+        print(string_to_binary('Hi!'))
 
     except ValueError:
         print("Check the input parameters. Try again...")
@@ -52,4 +78,3 @@ if __name__ == "__main__":
 
 
 #python afn_to_afd.py afn-tran-table.csv
-
