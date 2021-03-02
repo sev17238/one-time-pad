@@ -9,7 +9,7 @@
 
 
 # imports _________________________
-
+import random
 
 
 # Definitions _________________________
@@ -17,13 +17,22 @@ oneTimePad = 'cool'
 
 
 # Functions area______________________________________________
+def randon_binary_string(l=8): 
+    '''
+    Function to create the random binary string 
 
+    Params:
+     - l: length of random generated string
+    '''
+    key1 = "" 
+    for i in range(l): 
+        temp = str(random.randint(0, 1)) 
+        key1 += temp 
+    return(key1) 
 
 def string_to_binary(message):
-
-    #binaryMessage = ''.join(format(ord(i), '08b') for i in message) 
-    binaryMessage = ''.join(format(i, '08b') for i in bytearray(message, encoding ='utf-8')) 
-
+    binaryMessage = ''.join(format(ord(i), '08b') for i in message) 
+    #binaryMessage = ''.join(format(i, '08b') for i in bytearray(message, encoding ='utf-8')) 
     return binaryMessage
 
 
@@ -40,16 +49,15 @@ def xor_operation(string1,string2):
     resultString = ''
     for s in range(0,len(string1)):
         if(string1[s] == '0' and string2[s] == '0'):
-            resultString.append('0')
+            resultString += '0'
         elif(string1[s] == '0' and string2[s] == '1'):
-            resultString.append('1')
+            resultString += '1'
         elif(string1[s] == '1' and string2[s] == '0'):
-            resultString.append('1')
+            resultString += '1'
         elif(string1[s] == '1' and string2[s] == '1'):
-            resultString.append('0')
+            resultString += '0'
+
     return resultString
-
-
 
 
 
@@ -63,7 +71,9 @@ def main():
         message = f.read()
         print(message.split(',')) 
 
-        print(string_to_binary('Hi!'))
+        print(string_to_binary('Hi'))
+        print(randon_binary_string())
+        print(xor_operation('0101','1010'))
 
     except ValueError:
         print("Check the input parameters. Try again...")
