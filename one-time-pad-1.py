@@ -1,5 +1,5 @@
 ######################################################
-# Luis Delgado 17
+# Luis Delgado 17XXX
 # Diego Sevilla 17238
 ######################################################
 # test.py
@@ -11,10 +11,6 @@
 
 import string    
 import random
-
-# Definitions _________________________
-oneTimePad = 'cool'
-
 
 # Functions area______________________________________________
 # Genera un string random para realizar la encripción
