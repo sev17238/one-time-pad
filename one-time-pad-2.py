@@ -1,10 +1,11 @@
 ######################################################
-# Luis Delgado 17XXX
 # Diego Sevilla 17238
+# Luis Delgado 17187
 ######################################################
-# test.py
+# one-time-pad-2.py
 ######################################################
-# Python3 program to....
+# Python3 program to encrypt and decrypt messages
+# using the one-time-pad algorithm.
 ######################################################
 
 # tools ___________________________
